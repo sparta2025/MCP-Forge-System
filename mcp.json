@@ -1,0 +1,63 @@
+{
+  "mcpServers": {
+    "mcp-forge-server": {
+      "command": "python",
+      "args": [
+        "mcp_forge_server.py"
+      ],
+      "env": {
+        "EMAIL_ADDRESS": "${EMAIL_ADDRESS}",
+        "EMAIL_PASSWORD": "${EMAIL_PASSWORD}",
+        "SMTP_SERVER": "${SMTP_SERVER}",
+        "SMTP_PORT": "${SMTP_PORT}"
+      }
+    }
+  },
+  "forgeSystem": {
+    "name": "MCP Forge",
+    "version": "1.1.0",
+    "description": "MCP Forge — расширяемый пакет инструментов на базе MCP",
+    "protocols": [
+      "mcp-2024-11-05"
+    ],
+    "capabilities": {
+      "tools": {
+        "send_email": {
+          "description": "Отправляет электронное письмо с поддержкой вложений",
+          "supported_formats": [
+            "text",
+            "html"
+          ],
+          "max_recipients": 100,
+          "rate_limit": "10/minute",
+          "attachments": {
+            "max_size": "25MB",
+            "supported_types": [
+              "*/*"
+            ]
+          }
+        }
+      },
+      "logging": {
+        "level": "INFO",
+        "format": "json"
+      }
+    },
+    "deployment": {
+      "local": {
+        "host": "127.0.0.1",
+        "port": 8000
+      },
+      "cloud": {
+        "provider": "auto-detect",
+        "scaling": "auto",
+        "health_check": "/health"
+      }
+    },
+    "security": {
+      "encryption": "SSL",
+      "authentication": "env-vars",
+      "rate_limiting": true
+    }
+  }
+}
