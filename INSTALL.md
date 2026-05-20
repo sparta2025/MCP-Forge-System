@@ -14,8 +14,8 @@
 ## 1. Клонирование / скачивание
 
 ```bash
-git clone https://github.com/yourname/mcp-forge.git
-cd mcp-forge
+https://github.com/sparta2025/MCP-Forge-System.git
+cd MCP-Forge-System
 ```
 
 Или скачать ZIP-архив и распаковать в удобную папку.
